@@ -3408,6 +3408,22 @@ button.primary,
 					transform: translateY(1em);
 				}
 
+			/* Force white text on stacked tiles for mobile readability */
+			#one.spotlights > section .inner,
+			#one.spotlights > section .inner h2,
+			#one.spotlights > section .inner h3,
+			#one.spotlights > section .inner h4,
+			#one.spotlights > section .inner p,
+			#one.spotlights > section .subject-preview strong,
+			#one.spotlights > section .subjects-toggle summary {
+				color: #ffffff;
+			}
+
+			#one.spotlights > section .actions .button.alt {
+				color: #ffffff;
+				border-color: #ffffff !important;
+			}
+
 		}
 
 		@media screen and (max-width: 736px) {
