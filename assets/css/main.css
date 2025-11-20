@@ -3853,10 +3853,10 @@ p {
 			}
 
 			#sidebar nav a:after {
-				background-image: -moz-linear-gradient(to right, #131057, #1f9aa0);
-				background-image: -webkit-linear-gradient(to right, #131057, #1f9aa0);
-				background-image: -ms-linear-gradient(to right, #131057, #1f9aa0);
-				background-image: linear-gradient(to right, #131057, #1f9aa0);
+				background-image: -moz-linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
+				background-image: -webkit-linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
+				background-image: -ms-linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
+				background-image: linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
 				-moz-transition: max-width 0.2s ease;
 				-webkit-transition: max-width 0.2s ease;
 				-ms-transition: max-width 0.2s ease;
@@ -3865,11 +3865,11 @@ p {
 			}
 
 			#sidebar nav a:hover {
-				color: #1f9aa0;
+				color: #000000;
 			}
 
 			#sidebar nav a.active {
-				color: #1f9aa0;
+				color: #000000;
 			}
 
 				#sidebar nav a.active:after {
