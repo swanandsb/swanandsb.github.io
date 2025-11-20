@@ -4245,9 +4245,12 @@ button.primary,
 }
 
 #intro .narrow {
-	max-width: 75ch;
+	max-width: min(75ch, 100%);
+	width: 100%;
 	margin: 0 auto;
 	text-align: justify;
+	padding: 0 1rem;
+	overflow-wrap: break-word;
 }
 
 .hero-layout h1,
