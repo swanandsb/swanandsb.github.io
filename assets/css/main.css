@@ -2029,6 +2029,8 @@ button.primary,
 			border-top: solid 1px rgba(233, 242, 243, 0.1);
 			position: relative;
 			transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+			display: flex;
+			flex-direction: column;
 		}
 
 			.features section:nth-child(-n + 2) {
@@ -2043,6 +2045,10 @@ button.primary,
 				transform: translateY(-6px);
 				box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 				border-color: var(--accent);
+			}
+
+			.features section .actions {
+				margin-top: auto;
 			}
 
 			.features section .icon {
@@ -3194,6 +3200,19 @@ button.primary,
 #one.spotlights > section:nth-child(2):hover .actions .button.alt {
 	border-color: #ffffff !important;
 	color: #ffffff !important;
+}
+
+#one.spotlights:hover > section:not(:hover) .inner,
+#one.spotlights:hover > section:not(:hover) .inner h2,
+#one.spotlights:hover > section:not(:hover) .inner h3,
+#one.spotlights:hover > section:not(:hover) .inner h4,
+#one.spotlights:hover > section:not(:hover) .inner p {
+	color: #000000;
+}
+
+#one.spotlights:hover > section:not(:hover) .actions .button.alt {
+	border-color: #000000 !important;
+	color: #000000 !important;
 }
 
 @media screen and (max-width: 980px) {
@@ -4405,8 +4424,191 @@ a {
 
 /* Footer */
 	#footer > .inner .menu {
-		color: rgba(155, 183, 196, 0.8);
-	}
+	color: rgba(155, 183, 196, 0.8);
+}
+
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.5em;
+	margin: 1em 0 2em 0;
+}
+
+.skills-card {
+	background: rgba(0, 0, 0, 0.18);
+	border: 1px solid rgba(233, 242, 243, 0.12);
+	border-radius: 0.85em;
+	padding: 1.5em;
+	box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skills-card h3 {
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+.pill-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+.pill-list li {
+	background: rgba(31, 154, 160, 0.15);
+	color: #f6f8fb;
+	padding: 0.35em 0.75em;
+	border-radius: 999px;
+	font-size: 0.9em;
+	position: relative;
+	animation: pill-drift 12s ease-in-out infinite;
+	will-change: transform;
+}
+
+.pill-list li:nth-child(odd) {
+	animation-duration: 14s;
+	animation-delay: -3s;
+}
+
+.pill-list li:nth-child(3n) {
+	animation-duration: 16s;
+	animation-delay: -5s;
+}
+
+@keyframes pill-drift {
+	0%   { transform: translate(0, 0); }
+	20%  { transform: translate(12%, -10%); }
+	40%  { transform: translate(-10%, 10%); }
+	60%  { transform: translate(9%, 14%); }
+	80%  { transform: translate(-12%, -12%); }
+	100% { transform: translate(0, 0); }
+}
+
+.pill-list:hover li {
+	animation-duration: 10s;
+}
+
+.pill-list li:hover {
+	animation-play-state: paused;
+	transform: scale(1.06);
+}
+
+.list-tight {
+	list-style: disc;
+	padding-left: 1.2em;
+	line-height: 1.6;
+}
+
+.list-tight li {
+	margin-bottom: 0.4em;
+}
+
+.org-activity-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5em;
+}
+
+.org-block {
+	background: rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(233, 242, 243, 0.12);
+	border-radius: 0.65em;
+	padding: 1.25em 1.5em;
+	box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.skills-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 14px 30px rgba(0,0,0,0.26);
+}
+
+.align-right {
+	text-align: center;
+}
+
+.alt-left {
+	text-align: left;
+}
+
+.contact-inline .contact {
+	display: flex;
+	gap: 2.5em;
+	align-items: center;
+	margin-left: 0;
+}
+
+.inline-contact {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2.5em;
+	align-items: center;
+}
+
+.inline-contact li {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+}
+
+.inline-contact li h3 {
+	margin: 0;
+}
+
+.inline-icons {
+	display: flex;
+	gap: 0.75em;
+	padding: 0;
+	margin: 0;
+	font-size: 1.6em;
+	align-items: center;
+	position: relative;
+}
+
+.social-label {
+	margin: 0;
+	line-height: 1;
+}
+
+.inline-icons {
+	align-items: center;
+	position: relative;
+	margin-top: 0.1em;
+}
+
+.inline-icons:before {
+	content: '';
+	position: absolute;
+	left: -0.5em;
+	right: -0.5em;
+	top: 50%;
+	height: 1px;
+	background: rgba(233, 242, 243, 0.15);
+	z-index: 0;
+}
+
+.inline-icons li {
+	position: relative;
+	z-index: 1;
+}
+
+.contact-inline a,
+.inline-icons a {
+	border: 0;
+	text-decoration: none;
+}
+.contact-inline .contact a,
+.contact-inline .icons a {
+	border: 0;
+	text-decoration: none;
+}
 .experience-card {
 	background: rgba(0, 0, 0, 0.18);
 	border-radius: 0.85em;
