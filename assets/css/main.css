@@ -3937,15 +3937,15 @@ p {
 							padding: 0;
 						}
 
-					#sidebar nav a {
-						height: inherit;
-						line-height: inherit;
-						padding: 0;
-					}
+						#sidebar nav a {
+							height: inherit;
+							line-height: inherit;
+							padding: 0;
+						}
 
 						#sidebar nav a:after {
-							background-image: none;
-							background-color: #081B33;
+							background-image: linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
+							background-color: transparent;
 						}
 
 		}
@@ -4095,15 +4095,15 @@ a {
 	}
 
 	#sidebar nav a:after {
-		background-image: linear-gradient(to right, var(--primary), var(--accent));
+		background-image: linear-gradient(to right, #1b5668, #1f9aa0 55%, #c8ad7e 100%);
 	}
 
 	#sidebar nav a:hover {
-		color: #1f9aa0;
+		color: #000000;
 	}
 
 	#sidebar nav a.active {
-		color: #1f9aa0;
+		color: #000000;
 	}
 
 /* Buttons */
