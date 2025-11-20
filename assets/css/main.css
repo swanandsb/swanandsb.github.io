@@ -4015,6 +4015,19 @@ p {
 	z-index: 1;
 }
 
+/* Reveal animations */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+	transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 /* ------------------------------------------------------------------
    Set A per-page palettes (Home / Work Ex / Skills)
    Adjusted via body classes: .home-page, .workex-page, .skills-page
