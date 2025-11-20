@@ -4114,6 +4114,12 @@ button.primary,
 	}
 }
 
+#intro .narrow {
+	max-width: 48ch;
+	margin: 0 auto;
+	text-align: center;
+}
+
 #wrapper {
 	transition: opacity 0.35s ease;
 }
