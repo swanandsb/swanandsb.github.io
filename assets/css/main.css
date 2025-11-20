@@ -3510,6 +3510,27 @@ p {
 
 		}
 
+/* Header overrides for specific pages */
+	body.workex-page #header,
+	body.skills-page #header {
+		background: #dacaa4;
+	}
+
+	body.workex-page #header > .title,
+	body.skills-page #header > .title,
+	body.workex-page #header > nav > ul > li a,
+	body.skills-page #header > nav > ul > li a {
+		color: #131057;
+	}
+
+	body.workex-page #header > nav > ul > li a:hover,
+	body.workex-page #header > nav > ul > li a.active,
+	body.skills-page #header > nav > ul > li a:hover,
+	body.skills-page #header > nav > ul > li a.active {
+		color: #131057;
+	}
+
+
 /* Wrapper (main) */
 
 	#sidebar + #wrapper {
@@ -3572,8 +3593,8 @@ p {
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
-		border-right: 1px solid #8c6a2b;
+		background: #dacaa4;
+		border-right: 1px solid #b79c61;
 		cursor: default;
 		height: 100vh;
 		left: 0;
@@ -4035,24 +4056,24 @@ a {
 
 /* Sidebar */
 	#sidebar {
-		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
-		border-right: 1px solid #8c6a2b;
+		background: #dacaa4;
+		border-right: 1px solid #b79c61;
 	}
 
 	body.workex-page #sidebar {
-		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
+		background: #dacaa4;
 	}
 
 	body.skills-page #sidebar {
-		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
+		background: #dacaa4;
 	}
 
 	#sidebar nav a {
-		color: var(--muted);
+		color: #131057;
 	}
 
 	#sidebar nav a:before {
-		background: #8c6a2b;
+		background: #131057;
 	}
 
 	#sidebar nav a:after {
