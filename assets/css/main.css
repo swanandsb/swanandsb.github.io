@@ -4407,3 +4407,32 @@ a {
 	#footer > .inner .menu {
 		color: rgba(155, 183, 196, 0.8);
 	}
+.experience-card {
+	background: rgba(0, 0, 0, 0.18);
+	border-radius: 0.85em;
+	padding: 2em;
+	box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+	border: 1px solid rgba(233, 242, 243, 0.12);
+	margin: 1.25em 0;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+}
+
+.experience-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 30px rgba(0,0,0,0.26);
+}
+
+.experience-card + .experience-card {
+	margin-top: 1.75em;
+}
+
+.experience-card h2 {
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
