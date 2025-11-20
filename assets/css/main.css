@@ -4035,31 +4035,24 @@ a {
 
 /* Sidebar */
 	#sidebar {
-		background: #0f2733;
+		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
+		border-right: 1px solid #8c6a2b;
 	}
 
 	body.workex-page #sidebar {
-		background: #161018;
+		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
 	}
 
 	body.skills-page #sidebar {
-		background: #12201a;
+		background: linear-gradient(180deg, #b8873a 0%, #a9782f 100%);
 	}
 
 	#sidebar nav a {
-		color: rgba(233, 242, 243, 0.55);
+		color: var(--muted);
 	}
 
 	#sidebar nav a:before {
-		background: #0a1a24;
-	}
-
-	body.workex-page #sidebar nav a:before {
-		background: #120d14;
-	}
-
-	body.skills-page #sidebar nav a:before {
-		background: #0d1612;
+		background: #8c6a2b;
 	}
 
 	#sidebar nav a:after {
