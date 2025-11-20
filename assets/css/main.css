@@ -1819,10 +1819,11 @@ p {
 /* Button */
 
 	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
+input[type="reset"],
+input[type="button"],
+button,
+.button,
+.button.alt {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -1893,14 +1894,21 @@ p {
 		}
 
 		input[type="submit"].primary,
-		input[type="reset"].primary,
-		input[type="button"].primary,
-		button.primary,
-		.button.primary {
-			background-color: #ffffff;
-			color: #174f45 !important;
-			box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-		}
+input[type="reset"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary {
+	background-color: #ffffff;
+	color: #174f45 !important;
+	box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.button.alt {
+	background: transparent;
+	border: 1px solid #1f9aa0 !important;
+	color: #131057 !important;
+	box-shadow: none;
+}
 
 		input[type="submit"].primary:after,
 		input[type="reset"].primary:after,
@@ -1950,6 +1958,12 @@ p {
 			filter: brightness(1.06);
 			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
 		}
+
+	.button.alt:hover {
+		background: rgba(31, 154, 160, 0.1);
+		box-shadow: none;
+		filter: none;
+	}
 
 			input[type="submit"]:hover:after,
 			input[type="reset"]:hover:after,
@@ -3088,6 +3102,26 @@ p {
 			max-width: 40rem;
 		}
 
+/* Spotlights override for home cards */
+#one.spotlights {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 2.5rem;
+}
+
+#one.spotlights > section {
+	display: block;
+	min-height: auto;
+	background: rgba(0, 0, 0, 0.18);
+	border-radius: 0.85em;
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+	padding: 0;
+}
+
+#one.spotlights > section .content {
+	padding: 2.5em;
+}
+
 	@media screen and (max-width: 736px) {
 		.spotlights > section {
 			flex-direction: column;
@@ -4015,6 +4049,25 @@ p {
 	z-index: 1;
 }
 
+.hero-layout {
+	display: grid;
+	grid-template-columns: minmax(160px, 1fr) 1.2fr;
+	align-items: center;
+	gap: 2.5rem;
+}
+
+@media screen and (max-width: 980px) {
+	.hero-layout {
+		grid-template-columns: 1fr;
+		justify-items: center;
+		text-align: center;
+	}
+
+	.hero-layout .inner {
+		text-align: left;
+	}
+}
+
 /* Reveal animations */
 .reveal {
 	opacity: 0;
@@ -4123,7 +4176,7 @@ a {
 	}
 
 	#sidebar nav a:before {
-		background: #131057;
+		display: none;
 	}
 
 	#sidebar nav a:after {
