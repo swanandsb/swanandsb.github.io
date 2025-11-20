@@ -3380,14 +3380,14 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #081B33;
+		background-color: var(--panel);
 		cursor: default;
 		padding: 1.75em 2em;
 	}
 
 		#header > .title {
 			border: 0;
-			color: #ffffff;
+			color: var(--text);
 			display: block;
 			font-size: 1.25em;
 			font-weight: bold;
@@ -3419,7 +3419,7 @@ input, select, textarea {
 
 					#header > nav > ul > li a {
 						border: 0;
-						color: rgba(255, 255, 255, 0.35);
+						color: var(--muted);
 						display: inline-block;
 						font-size: 0.6em;
 						font-weight: bold;
@@ -3428,11 +3428,11 @@ input, select, textarea {
 					}
 
 						#header > nav > ul > li a:hover {
-							color: rgba(255, 255, 255, 0.55);
+							color: var(--text);
 						}
 
 						#header > nav > ul > li a.active {
-							color: #ffffff;
+							color: var(--text);
 						}
 
 		@media screen and (max-width: 736px) {
@@ -3457,7 +3457,7 @@ input, select, textarea {
 				}
 
 				#header > nav {
-					border-top: solid 1px rgba(255, 255, 255, 0.15);
+					border-top: solid 1px rgba(233, 242, 243, 0.15);
 					text-align: inherit;
 				}
 
@@ -3919,16 +3919,41 @@ input, select, textarea {
 		}
 
 /* ------------------------------------------------------------------
-   Coastal Teal palette overrides (safe to remove to restore old theme)
+   Set A per-page palettes (Home / Work Ex / Skills)
+   Adjusted via body classes: .home-page, .workex-page, .skills-page
 ------------------------------------------------------------------- */
 :root {
+	/* Home defaults */
 	--bg: #0b1f2a;
 	--panel: #102a35;
 	--panel-2: #123340;
 	--primary: #1f9aa0;
+	--primary-hover: #28b8bf;
 	--accent: #f3b33d;
 	--text: #e9f2f3;
 	--muted: #9bb7c4;
+}
+
+body.workex-page {
+	--bg: #141015;
+	--panel: #19141c;
+	--panel-2: #1f1a24;
+	--primary: #ff6b6b;
+	--primary-hover: #ff8080;
+	--accent: #3dd6d0;
+	--text: #f7f7fb;
+	--muted: #a3a8be;
+}
+
+body.skills-page {
+	--bg: #0f1b16;
+	--panel: #12231c;
+	--panel-2: #152b21;
+	--primary: #2ea36f;
+	--primary-hover: #3bbf86;
+	--accent: #f4a259;
+	--text: #e8f0eb;
+	--muted: #8ba99a;
 }
 
 body {
@@ -3942,7 +3967,7 @@ strong, b {
 }
 
 a {
-	border-bottom-color: rgba(31, 154, 160, 0.5);
+	border-bottom-color: var(--primary);
 	color: inherit;
 }
 
@@ -3974,12 +3999,28 @@ a {
 		background: #0f2733;
 	}
 
+	body.workex-page #sidebar {
+		background: #161018;
+	}
+
+	body.skills-page #sidebar {
+		background: #12201a;
+	}
+
 	#sidebar nav a {
 		color: rgba(233, 242, 243, 0.55);
 	}
 
 	#sidebar nav a:before {
 		background: #0a1a24;
+	}
+
+	body.workex-page #sidebar nav a:before {
+		background: #120d14;
+	}
+
+	body.skills-page #sidebar nav a:before {
+		background: #0d1612;
 	}
 
 	#sidebar nav a:after {
@@ -4001,7 +4042,7 @@ a {
 	input[type="reset"].primary,
 	input[type="button"].primary {
 		background-color: var(--primary);
-		color: #0b1f2a !important;
+		color: var(--bg) !important;
 		border-color: var(--primary) !important;
 	}
 
@@ -4010,15 +4051,15 @@ a {
 	input[type="submit"].primary:hover,
 	input[type="reset"].primary:hover,
 	input[type="button"].primary:hover {
-		background-color: #2ab4bb;
-		border-color: #2ab4bb !important;
-		color: #081722 !important;
+		background-color: var(--primary-hover);
+		border-color: var(--primary-hover) !important;
+		color: var(--bg) !important;
 	}
 
 /* Feature cards and borders */
 	.features {
 		border-color: rgba(233, 242, 243, 0.12);
-		background: rgba(11, 31, 42, 0.55);
+		background: rgba(0, 0, 0, 0.25);
 	}
 
 		.features section {
