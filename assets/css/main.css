@@ -4555,54 +4555,127 @@ a {
 	padding: 0;
 	display: flex;
 	align-items: center;
-	gap: 0.75em;
+	gap: 1em;
 }
 
-.inline-contact li h3 {
+.inline-contact .label-pill {
 	margin: 0;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	padding: 0.65em 1.35em;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255,255,255,0.16);
+	color: #f7f8fb;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+	position: relative;
+	text-transform: none;
+	letter-spacing: 0.01em;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 .inline-icons {
 	display: flex;
-	gap: 0.75em;
-	padding: 0;
+	gap: 1em;
+	padding: 0 0.65em;
 	margin: 0;
-	font-size: 1.6em;
+	font-size: 1.35em;
 	align-items: center;
 	position: relative;
-}
-
-.social-label {
-	margin: 0;
-	line-height: 1;
-}
-
-.inline-icons {
-	align-items: center;
-	position: relative;
-	margin-top: 0.1em;
-}
-
-.inline-icons:before {
-	content: '';
-	position: absolute;
-	left: -0.5em;
-	right: -0.5em;
-	top: 50%;
-	height: 1px;
-	background: rgba(233, 242, 243, 0.15);
-	z-index: 0;
 }
 
 .inline-icons li {
 	position: relative;
-	z-index: 1;
 }
 
+.inline-icons li:last-child {
+	padding-right: 0.6em;
+}
+
+.inline-icons a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 999px;
+	padding: 0.4em 0.55em;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+	transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.inline-icons::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -0.2em;
+	height: 2.4em;
+	width: 1px;
+	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 45%, rgba(255,255,255,0.28) 55%, rgba(255,255,255,0) 100%);
+	transform: translateY(-50%);
+	border-radius: 2px;
+}
+
+.inline-contact .label-pill:hover,
+.inline-contact .label-pill:focus-visible {
+	transform: translateY(-1px) scale(1.02);
+	box-shadow: 0 12px 22px rgba(0,0,0,0.24);
+	color: var(--accent);
+	background: rgba(255, 255, 255, 0.14);
+}
+
+.inline-icons a:hover,
+.inline-icons a:focus-visible {
+	transform: translateY(-1px) scale(1.05);
+	box-shadow: 0 12px 22px rgba(0,0,0,0.24);
+	color: var(--accent);
+}
+
+.inline-contact .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	padding: 0.65em 1.35em;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255,255,255,0.16);
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+	text-transform: none;
+	letter-spacing: 0.01em;
+	color: #f7f8fb;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.inline-contact .button:hover,
+.inline-contact .button:focus-visible {
+	transform: translateY(-1px) scale(1.02);
+	box-shadow: 0 12px 22px rgba(0,0,0,0.24);
+	color: var(--accent);
+	background: rgba(255, 255, 255, 0.14);
+}
 .contact-inline a,
 .inline-icons a {
 	border: 0;
 	text-decoration: none;
+}
+
+.cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+/* Focus visibility for keyboard users */
+a:focus-visible,
+.button:focus-visible,
+.icon:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
 }
 .contact-inline .contact a,
 .contact-inline .icons a {
