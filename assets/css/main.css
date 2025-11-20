@@ -3946,14 +3946,14 @@ input, select, textarea {
 }
 
 body.workex-page {
-	--bg: #0f141b;
-	--panel: #16202b;
-	--panel-2: #1d2a38;
+	--bg: #0e1c26;
+	--panel: #142a36;
+	--panel-2: #193748;
 	--primary: #3dd6d0;
 	--primary-hover: #54e0db;
 	--accent: #f3b33d;
-	--text: #eef3f7;
-	--muted: #a1b4c6;
+	--text: #eaf3f5;
+	--muted: #9fb8c6;
 }
 
 body.skills-page {
