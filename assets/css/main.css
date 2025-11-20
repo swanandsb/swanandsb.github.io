@@ -1831,11 +1831,10 @@ p {
 		-webkit-transition: border-color 0.2s ease;
 		-ms-transition: border-color 0.2s ease;
 		transition: border-color 0.2s ease;
-		background-color: transparent;
-		border: solid 1px !important;
-		border-color: rgba(255, 255, 255, 0.15) !important;
+		background: linear-gradient(135deg, #1b5668 0%, #1f9aa0 55%, #c8ad7e 100%);
+		border: none;
 		border-radius: 3em;
-		color: #ffffff !important;
+		color: #f6f8fb !important;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.6em;
@@ -1850,6 +1849,7 @@ p {
 		text-decoration: none;
 		text-transform: uppercase;
 		white-space: nowrap;
+		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 	}
 
 		input[type="submit"]:after,
@@ -1857,24 +1857,7 @@ p {
 		input[type="button"]:after,
 		button:after,
 		.button:after {
-			-moz-transform: scale(0.25);
-			-webkit-transform: scale(0.25);
-			-ms-transform: scale(0.25);
-			transform: scale(0.25);
-			pointer-events: none;
-			-moz-transition: opacity 0.2s ease, -moz-transform 0.2s ease;
-			-webkit-transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
-			-ms-transition: opacity 0.2s ease, -ms-transform 0.2s ease;
-			transition: opacity 0.2s ease, transform 0.2s ease;
-			background: #ffffff;
-			border-radius: 3em;
-			content: '';
-			height: 100%;
-			left: 0;
-			opacity: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
+			display: none;
 		}
 
 		input[type="submit"].icon:before,
@@ -1916,6 +1899,7 @@ p {
 		.button.primary {
 			background-color: #ffffff;
 			color: #174f45 !important;
+			box-shadow: 0 10px 22px rgba(0,0,0,0.18);
 		}
 
 		input[type="submit"].primary:after,
@@ -1963,7 +1947,8 @@ p {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			border-color: rgba(255, 255, 255, 0.55) !important;
+			filter: brightness(1.06);
+			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
 		}
 
 			input[type="submit"]:hover:after,
@@ -3100,6 +3085,7 @@ p {
 			background: rgba(0, 0, 0, 0.18);
 			border-radius: 0.85em;
 			box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+			max-width: 40rem;
 		}
 
 	@media screen and (max-width: 736px) {
@@ -3981,6 +3967,16 @@ p {
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
+		position: relative;
+		overflow: hidden;
+	}
+
+	#intro:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(circle at 20% 30%, rgba(31, 154, 160, 0.18), transparent 35%), linear-gradient(135deg, rgba(12, 26, 40, 0.6), rgba(12, 26, 40, 0.1));
+		pointer-events: none;
 	}
 
 		#intro p {
@@ -4003,13 +3999,30 @@ p {
 
 			}
 
-		@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1280px) {
 
-			#intro {
-				background-attachment: scroll;
-			}
+	#intro {
+		background-attachment: scroll;
+	}
 
-		}
+}
+
+/* Hero photo and intro layout */
+.hero-photo {
+	max-width: 360px;
+	width: min(60vw, 360px);
+	height: auto;
+	border-radius: 14px;
+	box-shadow: 0 14px 38px rgba(0,0,0,0.35);
+	position: relative;
+	z-index: 1;
+}
+
+#intro > .inner {
+	max-width: 52rem;
+	position: relative;
+	z-index: 1;
+}
 
 /* ------------------------------------------------------------------
    Set A per-page palettes (Home / Work Ex / Skills)
