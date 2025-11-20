@@ -67,14 +67,16 @@
 							<div class="content">
 								<div class="inner">
 									<h2>Academics</h2>
-									<p>Academics not only helps us get new and better jobs but also brings out the positive potential within us.</p>
+									<p class="academics-lead">Academics not only helps us get new and better jobs but also brings out the positive potential within us.</p>
 									<h3>MASTER OF SCIENCE (MS)</h3>
 									<p>San Diego State University, Computer Science</p>
 									<div class="subject-block">
 										<p class="subject-preview"><strong>Core subjects:</strong> Principles and Techniques of Data Science, Advanced Algorithms, Advanced Object Oriented Programming.</p>
 										<details class="subjects-toggle">
-											<summary>View all subjects</summary>
-											<p>Principles and Techniques of Data Science (CS-577), Advanced Algorithms (CS-660), Advanced Object Oriented Programming (CS-635), Big Data Analytics (CS-649), Machine Learning (CS-549)</p>
+											<summary data-label="View all" data-open-label="Close">View all</summary>
+											<div class="toggle-body">
+												<p>Principles and Techniques of Data Science (CS-577), Advanced Algorithms (CS-660), Advanced Object Oriented Programming (CS-635), Big Data Analytics (CS-649), Machine Learning (CS-549)</p>
+											</div>
 										</details>
 									</div>
 									<h3>BACHELOR OF ENGINEERING (BE)</h3>
@@ -82,8 +84,10 @@
 										<div class="subject-block">
 											<p class="subject-preview"><strong>Core subjects:</strong> Data Mining and Warehousing, Data Analytics, Machine Learning.</p>
 											<details class="subjects-toggle">
-												<summary>View all subjects</summary>
-												<p>Data Mining and Warehousing, Data Analytics, Machine Learning, Data Structures & Algorithms, Computer Organization & Architecture, Object Oriented Programming, Advanced Data Structure, Microprocessor, Principles of programming languages, Computer Graphics, Theory of computation, Database Management System, Software Engineering and Project Management, Computer Networks, Information Systems and Engineering Economics, Design and Analysis Algorithm, Embedded Systems and IOT, Software Modeling and Design, Web Technology, Artificial Intelligence & Robotics, High Performance Computing, Software Testing and Quality Assurance.</p>
+												<summary data-label="View all" data-open-label="Close">View all</summary>
+												<div class="toggle-body">
+													<p>Data Mining and Warehousing, Data Analytics, Machine Learning, Data Structures & Algorithms, Computer Organization & Architecture, Object Oriented Programming, Advanced Data Structure, Microprocessor, Principles of programming languages, Computer Graphics, Theory of computation, Database Management System, Software Engineering and Project Management, Computer Networks, Information Systems and Engineering Economics, Design and Analysis Algorithm, Embedded Systems and IOT, Software Modeling and Design, Web Technology, Artificial Intelligence & Robotics, High Performance Computing, Software Testing and Quality Assurance.</p>
+												</div>
 											</details>
 										</div>
 								</div>
@@ -171,9 +175,6 @@
 									</ul>
 								</section>
 							</div>
-									<ul class="actions">
-										<li><a href="https://github.com/swanandsb?tab=repositories" class="button alt">Learn more</a></li>
-									</ul>
 						</div>
 					</section>
 				<!-- Three -->
@@ -213,11 +214,97 @@
 										</li>
 									</ul>
 								</section>
+									</div>
 							</div>
-						</div>
-					</section>
+						</section>
 
 			</div>
+
+		<script>
+			(function() {
+				const toggles = document.querySelectorAll('.subjects-toggle');
+				toggles.forEach((toggle) => {
+					const summary = toggle.querySelector('summary');
+					const body = toggle.querySelector('.toggle-body');
+					if (!summary || !body) return;
+					const closedLabel = summary.dataset.label || 'View all';
+					const openLabel = summary.dataset.openLabel || 'Close';
+					const container = toggle.closest('#one');
+					let closeTimer;
+					let isClosing = false;
+
+					const updateLabel = () => {
+						summary.classList.add('switching');
+						setTimeout(() => {
+							summary.textContent = toggle.open ? openLabel : closedLabel;
+							summary.classList.remove('switching');
+						}, 120);
+					};
+
+					const scheduleAutoClose = () => {
+						clearTimeout(closeTimer);
+						if (toggle.open) {
+							closeTimer = setTimeout(() => {
+								if (toggle.open) smoothClose();
+							}, 5000);
+						}
+					};
+
+					const smoothClose = () => {
+						if (!toggle.open || isClosing) return;
+						isClosing = true;
+						clearTimeout(closeTimer);
+						body.style.maxHeight = `${body.scrollHeight}px`;
+						body.getBoundingClientRect();
+						body.style.maxHeight = '0px';
+						body.style.opacity = '0';
+						body.style.transform = 'translateY(-6px)';
+						setTimeout(() => {
+							toggle.open = false;
+							body.style.maxHeight = '';
+							body.style.opacity = '';
+							body.style.transform = '';
+							isClosing = false;
+							updateLabel();
+						}, 450);
+					};
+
+					const openToggle = () => {
+						if (toggle.open) return;
+						toggle.open = true;
+						updateLabel();
+						body.style.maxHeight = `${body.scrollHeight}px`;
+						body.style.opacity = '1';
+						body.style.transform = 'translateY(0)';
+						scheduleAutoClose();
+					};
+
+					summary.addEventListener('click', (e) => {
+						e.preventDefault();
+						if (toggle.open) {
+							smoothClose();
+						} else {
+							openToggle();
+						}
+					});
+
+					document.addEventListener('pointerover', (evt) => {
+						if (!toggle.open) return;
+						if (container && container.contains(evt.target)) return;
+						smoothClose();
+					});
+
+					if (container) {
+						container.addEventListener('pointerenter', scheduleAutoClose);
+						container.addEventListener('pointermove', () => {
+							// keep timer running while moving inside
+						});
+					}
+
+					updateLabel();
+				});
+			})();
+		</script>
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">

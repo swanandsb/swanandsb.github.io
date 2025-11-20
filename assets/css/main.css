@@ -3134,6 +3134,26 @@ button.primary,
 	min-width: 320px;
 }
 
+#one.spotlights > section .inner,
+#one.spotlights > section .inner h2,
+#one.spotlights > section .inner h3,
+#one.spotlights > section .inner h4,
+#one.spotlights > section .inner p,
+#one.spotlights > section .actions .button.alt,
+#one.spotlights > section .subject-preview strong,
+#one.spotlights > section .subjects-toggle summary {
+	transition: color 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
+#one.spotlights > section .subjects-toggle summary::after {
+	color: inherit;
+	transition: color 0.1s ease, opacity 0.1s ease;
+}
+
+#one.spotlights:hover > section:not(:hover) .subject-preview strong {
+	color: #000000;
+}
+
 #one.spotlights > section:nth-child(1) {
 	transform: translateY(8px) scale(0.99);
 	opacity: 0.95;
@@ -3176,7 +3196,9 @@ button.primary,
 #one.spotlights > section:nth-child(1):hover .inner h2,
 #one.spotlights > section:nth-child(1):hover .inner h3,
 #one.spotlights > section:nth-child(1):hover .inner h4,
-#one.spotlights > section:nth-child(1):hover .inner p {
+#one.spotlights > section:nth-child(1):hover .inner p,
+#one.spotlights > section:nth-child(1):hover .subject-preview strong,
+#one.spotlights > section:nth-child(1):hover .subjects-toggle summary {
 	color: #ffffff;
 }
 
@@ -3193,7 +3215,9 @@ button.primary,
 #one.spotlights > section:nth-child(2):hover .inner h2,
 #one.spotlights > section:nth-child(2):hover .inner h3,
 #one.spotlights > section:nth-child(2):hover .inner h4,
-#one.spotlights > section:nth-child(2):hover .inner p {
+#one.spotlights > section:nth-child(2):hover .inner p,
+#one.spotlights > section:nth-child(2):hover .subject-preview strong,
+#one.spotlights > section:nth-child(2):hover .subjects-toggle summary {
 	color: #ffffff;
 }
 
@@ -3206,7 +3230,8 @@ button.primary,
 #one.spotlights:hover > section:not(:hover) .inner h2,
 #one.spotlights:hover > section:not(:hover) .inner h3,
 #one.spotlights:hover > section:not(:hover) .inner h4,
-#one.spotlights:hover > section:not(:hover) .inner p {
+#one.spotlights:hover > section:not(:hover) .inner p,
+#one.spotlights:hover > section:not(:hover) .subjects-toggle summary {
 	color: #000000;
 }
 
@@ -4262,16 +4287,21 @@ button.primary,
 	margin: 0 0 1.5em;
 }
 
+.academics-lead {
+	max-width: 46ch;
+}
+
 .subject-preview {
 	margin: 0 0 0.5em;
+	max-width: 46ch;
 }
 
 .subjects-toggle {
-	background: rgba(255, 255, 255, 0.04);
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	border-radius: 12px;
-	padding: 0.75em 1em;
-	box-shadow: 0 6px 12px rgba(0,0,0,0.16);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	box-shadow: none;
 }
 
 .subjects-toggle summary {
@@ -4286,7 +4316,7 @@ button.primary,
 	border: 1px solid rgba(255,255,255,0.16);
 	font-weight: 600;
 	color: var(--accent);
-	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, opacity 0.25s ease;
 }
 
 .subjects-toggle summary::-webkit-details-marker {
@@ -4306,6 +4336,12 @@ button.primary,
 	transform: translateY(1px);
 }
 
+.subjects-toggle[open] summary {
+	transform: translateY(-1px);
+	box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+	background: rgba(255, 255, 255, 0.14);
+}
+
 .subjects-toggle summary:hover,
 .subjects-toggle summary:focus-visible {
 	transform: translateY(-1px);
@@ -4315,6 +4351,27 @@ button.primary,
 
 .subjects-toggle p {
 	margin: 0.8em 0 0;
+}
+.subjects-toggle .toggle-body {
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transform: translateY(-6px);
+	transition: max-height 0.45s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.subjects-toggle[open] .toggle-body {
+	opacity: 1;
+	max-height: 1200px;
+	transform: translateY(0);
+}
+
+.subjects-toggle summary.switching {
+	opacity: 0;
+}
+
+.subjects-toggle .toggle-body p {
+	max-width: 46ch;
 }
 
 #wrapper {
@@ -4384,6 +4441,47 @@ body.skills-page {
 body {
 	background: var(--bg);
 	color: rgba(233, 242, 243, 0.78);
+}
+
+.workex-page #main {
+	position: relative;
+	overflow: hidden;
+}
+
+.workex-page #main::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(circle at 10% 20%, rgba(233, 242, 243, 0.08) 0 1.2px, transparent 1.2px 20px),
+		radial-gradient(circle at 65% 70%, rgba(233, 242, 243, 0.07) 0 1.4px, transparent 1.4px 22px),
+		radial-gradient(circle at 85% 30%, rgba(233, 242, 243, 0.05) 0 1.2px, transparent 1.2px 18px),
+		linear-gradient(115deg, rgba(233, 242, 243, 0.08) 8%, transparent 12%),
+		linear-gradient(295deg, rgba(233, 242, 243, 0.05) 8%, transparent 14%),
+		linear-gradient(25deg, rgba(233, 242, 243, 0.05) 6%, transparent 10%);
+	background-size: 220px 220px, 260px 260px, 180px 180px, 100% 100%, 100% 100%, 100% 100%;
+	opacity: 0.35;
+	mix-blend-mode: screen;
+}
+
+.skills-page #main {
+	position: relative;
+	overflow: hidden;
+}
+
+.skills-page #main::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(80% 60% at 15% 20%, rgba(233, 242, 243, 0.08), transparent 70%),
+		radial-gradient(70% 65% at 85% 30%, rgba(233, 242, 243, 0.07), transparent 68%),
+		radial-gradient(65% 60% at 40% 80%, rgba(233, 242, 243, 0.05), transparent 65%),
+		radial-gradient(55% 55% at 70% 70%, rgba(233, 242, 243, 0.05), transparent 62%);
+	opacity: 0.3;
+	mix-blend-mode: screen;
 }
 
 h1, h2, h3, h4, h5, h6,
