@@ -3545,7 +3545,8 @@ input, select, textarea {
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: #174f45;
+		background: linear-gradient(180deg, #d9b166 0%, #cda457 100%);
+		border-right: 1px solid #b8873a;
 		cursor: default;
 		height: 100vh;
 		left: 0;
@@ -3752,18 +3753,18 @@ input, select, textarea {
 					transition-delay: 4.25s;
 				}
 
-		#sidebar nav a {
-			-moz-transition: color 0.2s ease;
-			-webkit-transition: color 0.2s ease;
-			-ms-transition: color 0.2s ease;
-			transition: color 0.2s ease;
-			border: 0;
-			color: rgba(255, 255, 255, 0.35);
-			display: block;
-			font-size: 0.6em;
-			font-weight: bold;
-			letter-spacing: 0.25em;
-			line-height: 1.75;
+	#sidebar nav a {
+		-moz-transition: color 0.2s ease;
+		-webkit-transition: color 0.2s ease;
+		-ms-transition: color 0.2s ease;
+		transition: color 0.2s ease;
+		border: 0;
+		color: var(--muted);
+		display: block;
+		font-size: 0.6em;
+		font-weight: bold;
+		letter-spacing: 0.25em;
+		line-height: 1.75;
 			outline: 0;
 			padding: 1.35em 0;
 			position: relative;
@@ -4032,6 +4033,19 @@ a {
 
 	body.skills-page #sidebar nav a:before {
 		background: #0d1612;
+	}
+
+	body.home-page #sidebar nav a {
+		color: #0f1f2a;
+	}
+
+	body.home-page #sidebar nav a:hover,
+	body.home-page #sidebar nav a.active {
+		color: #0b1f2a;
+	}
+
+	body.home-page #sidebar nav a:before {
+		background: #b8873a;
 	}
 
 	#sidebar nav a:after {
