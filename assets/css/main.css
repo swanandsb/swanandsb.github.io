@@ -1905,8 +1905,8 @@ button.primary,
 
 .button.alt {
 	background: transparent;
-	border: 1px solid #1f9aa0 !important;
-	color: #131057 !important;
+	border: 1px solid var(--text) !important;
+	color: var(--text) !important;
 	box-shadow: none;
 }
 
@@ -1959,11 +1959,11 @@ button.primary,
 			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
 		}
 
-	.button.alt:hover {
-		background: rgba(31, 154, 160, 0.1);
-		box-shadow: none;
-		filter: none;
-	}
+.button.alt:hover {
+	background: rgba(233, 242, 243, 0.08);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+	filter: none;
+}
 
 			input[type="submit"]:hover:after,
 			input[type="reset"]:hover:after,
@@ -3104,9 +3104,14 @@ button.primary,
 
 /* Spotlights override for home cards */
 #one.spotlights {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	flex-wrap: wrap;
 	gap: 2.5rem;
+	justify-content: center;
+	align-items: stretch;
 }
 
 #one.spotlights > section {
@@ -3116,6 +3121,16 @@ button.primary,
 	border-radius: 0.85em;
 	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
 	padding: 0;
+	position: relative;
+	transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+	flex: 1 1 calc(50% - 1.25rem);
+	max-width: calc(50% - 1.25rem);
+	min-width: 320px;
+}
+
+#one.spotlights > section:nth-child(1) {
+	transform: translateY(8px) scale(0.99);
+	opacity: 0.95;
 }
 
 #one.spotlights > section .content {
@@ -3132,6 +3147,65 @@ button.primary,
 @media screen and (max-width: 980px) {
 	.content-grid {
 		grid-template-columns: 1fr;
+	}
+}
+
+#one.spotlights:hover > section:not(:hover) {
+	transform: translateY(12px) scale(0.97);
+	opacity: 0.85;
+}
+
+#one.spotlights > section:hover {
+	transform: translateY(24px) scale(1.06);
+	box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+	opacity: 1;
+	z-index: 2;
+}
+
+#one.spotlights > section:nth-child(1):hover {
+	transform: translate(40%, 32px) scale(1.08);
+}
+
+#one.spotlights > section:nth-child(1):hover .inner,
+#one.spotlights > section:nth-child(1):hover .inner h2,
+#one.spotlights > section:nth-child(1):hover .inner h3,
+#one.spotlights > section:nth-child(1):hover .inner h4,
+#one.spotlights > section:nth-child(1):hover .inner p {
+	color: #ffffff;
+}
+
+#one.spotlights > section:nth-child(1):hover .actions .button.alt {
+	border-color: #ffffff !important;
+	color: #ffffff !important;
+}
+
+#one.spotlights > section:nth-child(2):hover {
+	transform: translate(-40%, 32px) scale(1.08);
+}
+
+#one.spotlights > section:nth-child(2):hover .inner,
+#one.spotlights > section:nth-child(2):hover .inner h2,
+#one.spotlights > section:nth-child(2):hover .inner h3,
+#one.spotlights > section:nth-child(2):hover .inner h4,
+#one.spotlights > section:nth-child(2):hover .inner p {
+	color: #ffffff;
+}
+
+#one.spotlights > section:nth-child(2):hover .actions .button.alt {
+	border-color: #ffffff !important;
+	color: #ffffff !important;
+}
+
+@media screen and (max-width: 980px) {
+	#one.spotlights {
+		flex-direction: column;
+	}
+
+	#one.spotlights > section,
+	#one.spotlights:hover > section,
+	#one.spotlights > section:hover {
+		transform: none;
+		opacity: 1;
 	}
 }
 
@@ -3171,6 +3245,43 @@ button.primary,
 	font-size: 0.9em;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
+}
+
+/* Skills tile shimmer */
+#three .content {
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.35s ease-out;
+	will-change: transform;
+}
+
+#three .content:after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, rgba(255,255,255,0), rgba(248,248,248,0.08), rgba(255,255,255,0));
+	transform: translateX(-100%);
+}
+
+#three:hover .content:after {
+	-webkit-animation: shimmer 1.4s ease;
+	animation: shimmer 1.4s ease;
+}
+
+#three:hover .content {
+	transform: translateX(16%);
+}
+
+@-webkit-keyframes shimmer {
+	0% { transform: translateX(-100%); }
+	50% { transform: translateX(20%); }
+	100% { transform: translateX(120%); }
+}
+
+@keyframes shimmer {
+	0% { transform: translateX(-100%); }
+	50% { transform: translateX(20%); }
+	100% { transform: translateX(120%); }
 }
 
 	@media screen and (max-width: 736px) {
@@ -4115,9 +4226,14 @@ button.primary,
 }
 
 #intro .narrow {
-	max-width: 65ch;
+	max-width: 75ch;
 	margin: 0 auto;
-	text-align: center;
+	text-align: justify;
+}
+
+.hero-layout h1,
+#intro .narrow {
+	color: var(--text);
 }
 
 #wrapper {
