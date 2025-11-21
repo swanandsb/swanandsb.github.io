@@ -4899,6 +4899,12 @@ a {
 	justify-content: flex-end;
 }
 
+.cta-row .button.primary {
+	color: #ffffff !important;
+	font-size: 0.9em;
+	letter-spacing: 0.01em;
+}
+
 /* Focus visibility for keyboard users */
 a:focus-visible,
 .button:focus-visible,
