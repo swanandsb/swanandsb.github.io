@@ -2049,6 +2049,17 @@ button.primary,
 
 			.features section .actions {
 				margin-top: auto;
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(6px);
+				transition: opacity 0.25s ease, transform 0.25s ease;
+			}
+
+			.features section:hover .actions,
+			.features section:focus-within .actions {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateY(0);
 			}
 
 			.features section .icon {
