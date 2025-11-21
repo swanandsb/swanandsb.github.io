@@ -72,7 +72,7 @@
 									<p>San Diego State University, Computer Science</p>
 									<div class="subject-block">
 										<p class="subject-preview"><strong>Core subjects:</strong> Principles and Techniques of Data Science, Advanced Algorithms, Advanced Object Oriented Programming.</p>
-										<details class="subjects-toggle">
+										<details class="subjects-toggle" aria-expanded="false">
 											<summary data-label="View all" data-open-label="Close">View all</summary>
 											<div class="toggle-body">
 												<p>Principles and Techniques of Data Science (CS-577), Advanced Algorithms (CS-660), Advanced Object Oriented Programming (CS-635), Big Data Analytics (CS-649), Machine Learning (CS-549)</p>
@@ -83,7 +83,7 @@
 									<p>University of Pune, Computer Engineering</p>
 										<div class="subject-block">
 											<p class="subject-preview"><strong>Core subjects:</strong> Data Mining and Warehousing, Data Analytics, Machine Learning.</p>
-											<details class="subjects-toggle">
+											<details class="subjects-toggle" aria-expanded="false">
 												<summary data-label="View all" data-open-label="Close">View all</summary>
 												<div class="toggle-body">
 													<p>Data Mining and Warehousing, Data Analytics, Machine Learning, Data Structures & Algorithms, Computer Organization & Architecture, Object Oriented Programming, Advanced Data Structure, Microprocessor, Principles of programming languages, Computer Graphics, Theory of computation, Database Management System, Software Engineering and Project Management, Computer Networks, Information Systems and Engineering Economics, Design and Analysis Algorithm, Embedded Systems and IOT, Software Modeling and Design, Web Technology, Artificial Intelligence & Robotics, High Performance Computing, Software Testing and Quality Assurance.</p>
@@ -214,7 +214,10 @@
 										</li>
 									</ul>
 								</section>
-									</div>
+								<section class="cta-row">
+									<a class="button primary" href="mailto:swanandsb@gmail.com?subject=Resume%20Request" aria-label="Request resume via email">Résumé</a>
+								</section>
+							</div>
 							</div>
 						</section>
 
@@ -238,6 +241,7 @@
 						setTimeout(() => {
 							summary.textContent = toggle.open ? openLabel : closedLabel;
 							summary.classList.remove('switching');
+							toggle.setAttribute('aria-expanded', toggle.open ? 'true' : 'false');
 						}, 120);
 					};
 

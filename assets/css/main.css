@@ -3270,6 +3270,7 @@ button.primary,
 	#one.spotlights > section:hover {
 		transform: none;
 		opacity: 1;
+		filter: none;
 	}
 }
 
@@ -4305,6 +4306,32 @@ button.primary,
 	}
 }
 
+/* Reduced motion preference: tone down tile animations */
+@media (prefers-reduced-motion: reduce) {
+	#one.spotlights > section {
+		transition: opacity 0.2s ease, box-shadow 0.2s ease;
+		transform: none !important;
+		filter: none !important;
+	}
+
+	#one.spotlights:hover > section:not(:hover),
+	#one.spotlights:hover > section:nth-child(1):not(:hover),
+	#one.spotlights:hover > section:nth-child(2):not(:hover) {
+		transform: none !important;
+		opacity: 1 !important;
+		filter: none !important;
+	}
+
+	#one.spotlights > section:hover {
+		transform: none !important;
+		box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+	}
+
+	.subjects-toggle .toggle-body {
+		transition: none;
+	}
+}
+
 #intro .narrow {
 	max-width: min(75ch, 100%);
 	width: 100%;
@@ -4436,12 +4463,19 @@ button.primary,
 	transform: translateY(0);
 }
 
-/* ------------------------------------------------------------------
-   Set A per-page palettes (Home / Work Ex / Skills)
-   Adjusted via body classes: .home-page, .workex-page, .skills-page
-------------------------------------------------------------------- */
 :root {
-	/* Home defaults */
+	/* Base palette tokens */
+	--bg: #0b1f2a;
+	--panel: #102a35;
+	--panel-2: #123340;
+	--primary: #1f9aa0;
+	--primary-hover: #28b8bf;
+	--accent: #f3b33d;
+	--text: #e9f2f3;
+	--muted: #9bb7c4;
+}
+
+body.home-page {
 	--bg: #0b1f2a;
 	--panel: #102a35;
 	--panel-2: #123340;
