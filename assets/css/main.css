@@ -3252,7 +3252,6 @@ button.primary,
 	#one.spotlights > section:hover {
 		transform: none;
 		opacity: 1;
-		filter: none;
 	}
 }
 
